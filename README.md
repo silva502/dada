@@ -265,7 +265,7 @@ local State = {
 	hittingCooldown = false, infJumpEnabled = false,
 	antiRagdollEnabled = false, fpsBoostEnabled = false,
 	antiLagEnabled = false,
-	guiVisible = true, editMode = false,
+	guiVisible = true, editMode = false, editMode = false,
 	introEnabled = true, selectedIntroMusic = 1,
 	isStealing = false, stealStartTime = nil, lastStealTick = 0,
 	lastKnownHealth = 100,
@@ -2959,7 +2959,7 @@ Players.LocalPlayer.AncestryChanged:Connect(function() pcall(saveConfig) end)
 
 print("[Ghost Hub] Loaded!")
 
-
+end)()
 
 -- ============================================================
 -- INTRO ANIMATION
@@ -2975,7 +2975,7 @@ local function playIntroAnimation()
 	local SOUL_LOGO_ASSET_ID = "rbxassetid://115490552666225"
 	
 	local introGui = Instance.new("ScreenGui")
-	introGui.Name = "GhostHubIntro"
+	introGui.Name = "SoulHubIntro"
 	introGui.ResetOnSpawn = false
 	introGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	introGui.DisplayOrder = 999
@@ -2991,7 +2991,7 @@ local function playIntroAnimation()
 	introFrame.Parent = introGui
 
 	local logoImage = Instance.new("ImageLabel")
-	logoImage.Name = "GhostLogo"
+	logoImage.Name = "SoulLogo"
 	logoImage.Size = UDim2.new(0, 280, 0, 280)
 	logoImage.Position = UDim2.new(0.5, 0, 0.5, 0)
 	logoImage.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -3007,7 +3007,7 @@ local function playIntroAnimation()
 	soulLabel.Position = UDim2.new(0, -350, 0.5, -95)
 	soulLabel.AnchorPoint = Vector2.new(0.5, 0.5)
 	soulLabel.BackgroundTransparency = 1
-	soulLabel.Text = "Ghost"
+	soulLabel.Text = "Envy"
 	soulLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 	soulLabel.TextTransparency = 0
 	soulLabel.TextSize = 88
@@ -3049,9 +3049,9 @@ local function playIntroAnimation()
 			}
 			local selectedMusic = State.selectedIntroMusic or 1
 			local RandomIntro = intros[selectedMusic]
-			writefile("GhostHubIntro", game:HttpGet(RandomIntro))
+			writefile("EnvyHubIntro", game:HttpGet(RandomIntro))
 			local flex1 = Instance.new("Sound", gethui())
-			flex1.SoundId = getcustomasset("GhostHubIntro")
+			flex1.SoundId = getcustomasset("EnvyHubIntro")
 			flex1.PlaybackSpeed = 1
 			flex1.Volume = 1
 			flex1:Play()
